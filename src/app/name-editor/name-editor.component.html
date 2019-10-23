@@ -1,0 +1,113 @@
+<div class="container">
+  <h1>Reactive Form Demo</h1>
+
+  <form
+    class="example-form"
+    [formGroup]="companyProfile"
+    (ngSubmit)="onSubmit()"
+  >
+    <mat-form-field>
+      <input
+        matInput
+        type="text"
+        formControlName="companyName"
+        placeholder="Tên công ty"
+      />
+    </mat-form-field>
+
+    <mat-form-field>
+      <input
+        matInput
+        type="text"
+        formControlName="website"
+        placeholder="Website"
+      />
+    </mat-form-field>
+
+    <mat-form-field>
+      <textarea
+        rows="5"
+        matInput
+        type="text"
+        formControlName="description"
+        placeholder="Mô tả"
+      ></textarea>
+    </mat-form-field>
+
+    <div formGroupName="address" class="example-form">
+      <h3>Địa chỉ</h3>
+      <mat-form-field>
+        <input
+          matInput
+          type="text"
+          formControlName="city"
+          placeholder="Tỉnh/Thành phố"
+        />
+      </mat-form-field>
+
+      <mat-form-field>
+        <input
+          matInput
+          type="text"
+          formControlName="district"
+          placeholder="Quận/Huyện"
+        />
+      </mat-form-field>
+
+      <mat-form-field>
+        <input
+          matInput
+          type="text"
+          formControlName="ward"
+          placeholder="Phường/Xã"
+        />
+      </mat-form-field>
+
+      <mat-form-field>
+        <input
+          matInput
+          type="text"
+          formControlName="address"
+          placeholder="Địa chỉ"
+        />
+      </mat-form-field>
+    </div>
+
+    <div formArrayName="welfares">
+      <h3>
+        Phúc lợi
+        <button
+          type="button"
+          (click)="addWelfare()"
+          mat-raised-button
+          color="primary"
+        >
+          Thêm phúc lợi
+        </button>
+      </h3>
+
+      <div
+        *ngFor="let welfare of welfares.controls; let i = index"
+        class="example-form"
+      >
+        <mat-form-field>
+          <input
+            matInput
+            type="text"
+            [formControlName]="i"
+            placeholder="Phúc lợi {{ i + 1 }}"
+          />
+        </mat-form-field>
+      </div>
+    </div>
+
+    <button
+      type="submit"
+      mat-raised-button
+      color="primary"
+      [disabled]="!companyProfile.valid"
+    >
+      Submit
+    </button>
+  </form>
+</div>

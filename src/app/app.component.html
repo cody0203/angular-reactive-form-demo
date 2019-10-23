@@ -1,0 +1,8 @@
+<div *ngIf="isSubmitted; then Data; else Form"></div>
+
+<ng-template #Form>
+  <app-name-editor (submitForm)="handleSubmitForm($event)"></app-name-editor>
+</ng-template>
+<ng-template #Data>
+  <app-submit-data [submitData]="data"></app-submit-data>
+</ng-template>

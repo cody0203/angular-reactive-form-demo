@@ -1,0 +1,27 @@
+h1 {
+  text-align: center;
+}
+
+.container {
+  margin: auto;
+  max-width: 1200px;
+  background-color: #eee;
+  padding: 20px;
+  margin-top: 10px;
+  text-align: center;
+}
+
+.example-form {
+  display: flex;
+  flex-direction: column;
+  width: 500px;
+  margin: auto;
+}
+
+.example-container > * {
+  width: 100%;
+}
+
+h3 {
+  margin: 5px 0;
+}

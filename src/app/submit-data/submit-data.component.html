@@ -1,0 +1,25 @@
+<ul>
+  <li>Tên Công ty: {{ submitData.company }}</li>
+
+  <li>Website: {{ submitData.website }}</li>
+
+  <li>Mô tả: {{ submitData.description }}</li>
+
+  <li>
+    Địa chỉ:
+    <ul>
+      <li *ngFor="let item of submitData.address | keyvalue">
+        {{ item.key }}: {{ item.value }}
+      </li>
+    </ul>
+  </li>
+
+  <li>
+    Phúc lợi:
+    <ul>
+      <li *ngFor="let item of submitData.welfares">
+        {{ item }}
+      </li>
+    </ul>
+  </li>
+</ul>
