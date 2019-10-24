@@ -1,25 +1,64 @@
-<ul>
-  <li>Tên Công ty: {{ submitData.company }}</li>
+<h2>Thông tin công ty</h2>
 
-  <li>Website: {{ submitData.website }}</li>
+<table>
+  <thead>
+    <th></th>
+    <th>Thông tin</th>
+  </thead>
+  <tbody>
+    <tr>
+      <td>
+        Tên Công ty:
+      </td>
+      <td>
+        {{ submitData.companyName }}
+      </td>
+    </tr>
 
-  <li>Mô tả: {{ submitData.description }}</li>
+    <tr>
+      <td>
+        Website:
+      </td>
+      <td>
+        {{ submitData.website }}
+      </td>
+    </tr>
 
-  <li>
-    Địa chỉ:
-    <ul>
-      <li *ngFor="let item of submitData.address | keyvalue">
-        {{ item.key }}: {{ item.value }}
-      </li>
-    </ul>
-  </li>
+    <tr>
+      <td>
+        Mô tả:
+      </td>
+      <td>
+        {{ submitData.description }}
+      </td>
+    </tr>
 
-  <li>
-    Phúc lợi:
-    <ul>
-      <li *ngFor="let item of submitData.welfares">
+    <tr>
+      <td>
+        Ngày thành lập:
+      </td>
+      <td>
+        {{ submitData.dateOfEstablishment | date: 'fullDate' }}
+      </td>
+    </tr>
+
+    <tr
+      *ngFor="
+        let item of submitData.address | keyvalue: sortNull;
+        let i = index
+      "
+    >
+      <td>{{ address[i] }}:</td>
+      <td>
+        {{ item.value }}
+      </td>
+    </tr>
+
+    <tr *ngFor="let item of submitData.welfares; let i = index">
+      <td>Phúc lợi {{ i + 1 }}:</td>
+      <td>
         {{ item }}
-      </li>
-    </ul>
-  </li>
-</ul>
+      </td>
+    </tr>
+  </tbody>
+</table>

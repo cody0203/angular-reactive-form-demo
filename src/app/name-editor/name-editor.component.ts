@@ -16,7 +16,8 @@ export class NameEditorComponent {
   companyProfile = this.fb.group({
     companyName: ["", Validators.required],
     website: ["", Validators.required],
-    description: ["", [Validators.required, Validators.minLength(100)]],
+    description: ["", [Validators.required, Validators.minLength(10)]],
+    dateOfEstablishment: ['', Validators.required],
     address: this.fb.group({
       city: ["", Validators.required],
       district: ["", Validators.required],
@@ -32,6 +33,7 @@ export class NameEditorComponent {
 
   addWelfare() {
     this.welfares.push(this.fb.control(""));
+    console.log(this.companyProfile)
   }
 
   onSubmit() {

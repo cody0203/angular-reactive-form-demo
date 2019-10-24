@@ -7,6 +7,9 @@ import { Component, Input, OnInit } from "@angular/core";
 })
 export class SubmitDataComponent implements OnInit {
   @Input() submitData;
+  address = ['Tỉnh/Thành phố', 'Quận/Huyện', 'Phường/Xã', 'Địa chỉ']
+
+  sortNull() {}
 
   ngOnInit() {
     console.log(this.submitData);
